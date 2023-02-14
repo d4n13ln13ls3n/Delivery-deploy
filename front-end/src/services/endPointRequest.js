@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const endpointRequest = axios.create({
-  baseURL: 'http://localhost:3001',
+  baseURL: 'https://delivery-deploy-production.up.railway.app/',
 });
 
 export const signLogin = async (endpoint, body) => {

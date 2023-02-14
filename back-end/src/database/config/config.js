@@ -11,17 +11,16 @@ const suffix = {
 };
 
 const options = {
-  host: process.env.HOSTNAME || process.env.MYSQL_HOST || 'localhost',
-  port: process.env.MYSQL_PORT || '3306',
+  host: process.env.PGHOST,
+  port: Number(process.env.PGPORT),
   database: 
-    `${process.env.MYSQL_DB_NAME || 'delivery-app'}${suffix[environment] || suffix.test}`,
-  username: process.env.MYSQL_USER || 'root',
-  password: process.env.MYSQL_PASSWORD || 'password',
-  dialect: 'mysql',
-  dialectOptions: {
-    timezone: 'Z',
-  },
-  logging: false,
+    `${process.env.PGDATABASE}`,
+  username: process.env.PGUSER,
+  password: process.env.PGPASSWORD,
+  dialect: 'postgres',
+  define: {
+    timestamps: true,
+  }
 };
 
 module.exports = {
